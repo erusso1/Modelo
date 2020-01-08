@@ -9,18 +9,26 @@
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		D7ADCF61530B46B535624848 /* Pods_Modelo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A657E417ECD8337C4F221B1C /* Pods_Modelo_Tests.framework */; };
+		F3D9261323DCF3AE00BF49CE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9261123DCF3AD00BF49CE /* Post.swift */; };
+		F3D9261423DCF3AE00BF49CE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9261223DCF3AD00BF49CE /* Comment.swift */; };
+		F3D9261623DCF3FB00BF49CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9261523DCF3FB00BF49CE /* User.swift */; };
+		F3D9261A23DD598100BF49CE /* Result+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9261923DD598100BF49CE /* Result+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		161287AFEA846F4E3A6C53E9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		161287AFEA846F4E3A6C53E9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2BA9EEC9BF77C5D98B8B49AB /* Pods-Modelo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modelo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Modelo_Tests/Pods-Modelo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Modelo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Modelo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		73AAB454D20F85DE1545FCF4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		817EA398447185EF01166BD8 /* Modelo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Modelo.podspec; path = ../Modelo.podspec; sourceTree = "<group>"; };
+		73AAB454D20F85DE1545FCF4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		817EA398447185EF01166BD8 /* Modelo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Modelo.podspec; path = ../Modelo.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A657E417ECD8337C4F221B1C /* Pods_Modelo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Modelo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFF2CA42B064DCB88F0FFE8 /* Pods-Modelo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modelo_Tests.release.xcconfig"; path = "Target Support Files/Pods-Modelo_Tests/Pods-Modelo_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F3D9261123DCF3AD00BF49CE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F3D9261223DCF3AD00BF49CE /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F3D9261523DCF3FB00BF49CE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F3D9261923DD598100BF49CE /* Result+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				F3D9261923DD598100BF49CE /* Result+Tests.swift */,
+				F3D9261223DCF3AD00BF49CE /* Comment.swift */,
+				F3D9261123DCF3AD00BF49CE /* Post.swift */,
+				F3D9261523DCF3FB00BF49CE /* User.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -87,7 +99,6 @@
 				2BA9EEC9BF77C5D98B8B49AB /* Pods-Modelo_Tests.debug.xcconfig */,
 				BCFF2CA42B064DCB88F0FFE8 /* Pods-Modelo_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,17 +139,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -147,6 +153,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -218,7 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D9261623DCF3FB00BF49CE /* User.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				F3D9261423DCF3AE00BF49CE /* Comment.swift in Sources */,
+				F3D9261A23DD598100BF49CE /* Result+Tests.swift in Sources */,
+				F3D9261323DCF3AE00BF49CE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -237,12 +249,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -282,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -290,12 +305,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -341,8 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Modelo_Example.app/Modelo_Example";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -359,8 +375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Modelo_Example.app/Modelo_Example";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
