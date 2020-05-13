@@ -1,5 +1,5 @@
 PODS:
-  - Modelo (0.1.0)
+  - Modelo (1.0.0)
 
 DEPENDENCIES:
   - Modelo (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Modelo: b10d46a0da58b9c9fa6963d5bb8577f9e4c387bd
+  Modelo: 4e0c9b468829541f427e9fa16eaf29c88df9d12e
 
 PODFILE CHECKSUM: 30d8384e87af07385dcf4efc803c65c02325177e
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

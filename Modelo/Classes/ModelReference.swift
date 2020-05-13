@@ -8,11 +8,11 @@
 import Foundation
 
 @propertyWrapper
-public struct ModelReference<T: ModelType>: Codable, Equatable {
+public struct ModelReference<T: ModelType>: Codable, Equatable where T.ID: Codable {
         
-    public let wrappedValue: T.IdentiferType
+    public let wrappedValue: T.ID
     
-    public init(wrappedValue: T.IdentiferType) {
+    public init(wrappedValue: T.ID) {
         self.wrappedValue = wrappedValue
     }
     
@@ -21,7 +21,7 @@ public struct ModelReference<T: ModelType>: Codable, Equatable {
     public init(from decoder: Decoder) throws {
         
         let container = try decoder.singleValueContainer()
-        self.wrappedValue = try container.decode(T.IdentiferType.self)
+        self.wrappedValue = try container.decode(T.ID.self)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -56,6 +56,35 @@ public struct ModelReference<T: ModelType>: Codable, Equatable {
         ModelReferenceFetchUtility.shared.addReferenceFetchOperation(operation, identifier: identifier)
                 
         return .init(operation: operation)
+    }
+    
+    public func resolveSync() throws -> T {
+        
+        guard !Thread.current.isMainThread else { fatalError("Cannot synchronously resolve model reference on Main Thread!")  }
+        
+        var error: Error?
+        var output: T?
+        
+        let group = DispatchGroup()
+        group.enter()
+        
+        self.resolve { result in
+            
+            switch result {
+            case .success(let m): output = m
+            case .failure(let e): error = e
+            }
+            
+            group.leave()
+        }
+        
+        let _ = group.wait(timeout: .now() + 20)
+        
+        if let output = output { return output }
+        
+        else if let error = error { throw error }
+        
+        else { abort()  }
     }
 }
 

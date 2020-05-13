@@ -7,23 +7,16 @@
 
 import Foundation
 
-public typealias IDRepresentable = Hashable & Codable & LosslessStringConvertible
-
-public protocol ModelType: Codable, Equatable {
-    
-    associatedtype IdentiferType: IDRepresentable
-    
-    /// Returns the unique identifier of the model object.
-    var id: IdentiferType { get }
-    
+public protocol ModelType: Codable, Equatable, Identifiable {
+            
     /// The update queue used by this model type to safely read/write to the `unsafeModelMap`.
     static var modelMapUpdateQueue: DispatchQueue { get }
     
     /// The unsafe model hash map keybed by `identifierType` with `Self` values.
-    static var unsafeModelMap: [IdentiferType: Self] { get set }
+    static var unsafeModelMap: [ID: Self] { get set }
     
     /// Fetches an instance of `Self` with the given `identifer` via API request.
-    static func fetchModel(identifier: IdentiferType, completion: @escaping (Result<Self, Error>) -> Void)
+    static func fetchModel(identifier: ID, completion: @escaping (Result<Self, Error>) -> Void)
 }
 
 extension ModelType {
@@ -54,9 +47,9 @@ extension ModelType {
         }
     }
     
-    public static var safeModelMap: [IdentiferType: Self] {
+    public static var safeModelMap: [ID: Self] {
         
-        var mapCopy = [IdentiferType: Self]()
+        var mapCopy = [ID: Self]()
         modelMapUpdateQueue.sync { mapCopy = unsafeModelMap }
         return mapCopy
     }

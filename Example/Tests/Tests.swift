@@ -20,11 +20,36 @@ class Tests: XCTestCase {
 
         let post = Post(id: 1, user: 1, title: "Hey look at me!", body: "Something something dark side...")
         let exp = XCTestExpectation()
-        
+        XCTAssertNil(post.$user.storedValue)
+
         post.$user.resolve {
             XCTAssertNotNil($0.value)
+            XCTAssertNotNil(post.$user.storedValue)
             exp.fulfill()
         }
+        wait(for: [exp], timeout: 50)
+    }
+    
+    func testResolveSync() {
+        
+        let post = Post(id: 1, user: 1, title: "Hey look at me!", body: "Something something dark side...")
+        
+        let exp = XCTestExpectation()
+        
+        DispatchQueue.global(qos: .utility).async {
+            
+            do {
+                let _ = try post.$user.resolveSync()
+                XCTAssertNotNil(post.$user.storedValue)
+            }
+            catch{
+                print(error)
+                XCTAssertTrue(false)
+            }
+            
+            exp.fulfill()
+        }
+
         wait(for: [exp], timeout: 50)
     }
     
@@ -32,6 +57,8 @@ class Tests: XCTestCase {
         
         let post = Post(id: 1, user: 1, title: "Hey look at me!", body: "Something something dark side...")
         
+        XCTAssertNil(post.$user.storedValue)
+
         let op = post.$user.resolve {
             XCTAssertNil($0.value)
             XCTAssert(false)
@@ -55,6 +82,8 @@ class Tests: XCTestCase {
             exp.fulfill()
         }
         
+        XCTAssertNil(post.$user.storedValue)
+
         wait(for: [exp], timeout: 10)
     }
 }

@@ -22,12 +22,15 @@ extension User {
     
     static func fetchModel(identifier: Int, completion: @escaping (Result<User, Error>) -> Void) {
     
+        print(#function)
         let request = URLRequest(url: URL(string: "https://jsonplaceholder.typicode.com/users/\(identifier)")!)
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { data, response, error in
             
             guard let data = data, error == nil else { completion(.failure(error!)); return }
             
+            print("Successfully fetched from network")
+
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
                 completion(.success(user))

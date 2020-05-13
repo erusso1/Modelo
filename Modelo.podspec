@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Modelo'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Modelo.'
+  s.version          = '1.0.0'
+  s.summary          = 'Protocol for Models & resolving references.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'Modelo uses the ModelType protocol and Property Wrappers for complex models with multiple references. The ModelReference PropertyWrapper allows you to quickly resolve reference synchronously and asynchronously, and uses OperationQueue to resolve references not yet fetched.'
 
   s.homepage         = 'https://github.com/erusso1/Modelo'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

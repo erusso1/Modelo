@@ -9,7 +9,7 @@ import Foundation
 
 class ReferenceFetchOperation<T: ModelType>: Operation {
     
-    let identifier: T.IdentiferType
+    let identifier: T.ID
         
     var result: Result<T, Error>? {
         
@@ -35,7 +35,7 @@ class ReferenceFetchOperation<T: ModelType>: Operation {
         }
     }
     
-    init(identifier: T.IdentiferType) {
+    init(identifier: T.ID) {
         self.identifier = identifier
     }
     
@@ -57,9 +57,7 @@ class ReferenceFetchOperation<T: ModelType>: Operation {
             T.fetchModel(identifier: identifier) { [weak self] result in
                 
                 if self?.isCancelled == true { return }
-                
-                print("Successfully fetched from network")
-                
+                                
                 switch result {
                     
                 case .success(let model):
